@@ -1,14 +1,13 @@
-import Login from "./components/Login/Login";
-import DashBoard from "./components/dashBoard/DashBoard";
 
+import './index.css';
+import Login from './components/Login/Login';
 
-
-const App = () =>{
-    return (
-        <>
-            <Login/>
-        </>
-    )
+function App() {
+  return (
+    <>
+      <Login/>
+    </>
+  );
 }
 
 export default App;
