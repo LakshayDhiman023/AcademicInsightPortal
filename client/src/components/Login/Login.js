@@ -25,10 +25,11 @@ function Login() {
   };
 
   return (
+    <div className="bg-blue-900 rounded-lg py-5">
     <div className="container flex flex-col mx-auto bg-white rounded-lg pt-12 my-5">
       <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
         <div className="flex items-center justify-center w-full lg:p-12">
-          <div className="flex items-center xl:p-10">
+          <div className="flex items-center relative flex flex-col mt-6 text-gray-700 bg-blue shadow-md bg-clip-border rounded-xl w-96 xl:p-10">
             <div className="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl">
               <div>
                 <h3 className="mb-3 text-4xl font-extrabold text-dark-grey-900">
@@ -42,7 +43,7 @@ function Login() {
                   <input
                     type="email"
                     name="email"
-                    className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => onValueChange(e)}
                   />
                 </div>
@@ -53,24 +54,33 @@ function Login() {
                   <input
                     type="password"
                     name="password"
-                    className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={(e) => onValueChange(e)}
                   />
                 </div>
-                <button className="" onClick={handleSubmit}>
+               <div className="mt-5">
+                <div>
+                <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={handleSubmit}>
                   Login
                 </button>
-
+                  
+                  </div>
+                </div>
+                <div className="mt-5">
+                <div>
                 <button className="" onClick={() => changeUser()}>
                   {user === "Student"
                     ? "Login as a Admin"
                     : "Login as a Student"}
                 </button>
+                </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
