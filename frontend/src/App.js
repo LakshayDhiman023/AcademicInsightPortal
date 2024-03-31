@@ -6,15 +6,37 @@ import Home from './components/home';
 import Result from './components/result/Result';
 import Attendence from './components/attendence/Attendence';
 import Dashboard from './components/dashboard/Dashboard';
+import { useState } from 'react';
+import { LoginForm } from './components/signup/SignUp';
 
 function App() {
+  const [login, setLogin] = useState(true);
+
+  const handleLogin = () => {
+    // Perform login logic here, e.g., set isLoggedIn to true
+    setLogin(true);
+  };
+
+  // Function to handle logout
+  const handleLogout = () => {
+    // Perform logout logic here, e.g., set isLoggedIn to false
+    setLogin(false);
+  };
+
   return (
     <BrowserRouter>
+
       <Routes>
-        <Route path='/' element = {<Home/>}/>
-        <Route path='/dashboard' element= {<Dashboard/>}/>
-        <Route path='/allResult' element = {<Result/>}/>
-        <Route path='/attendence' element = {<Attendence/>} />
+        {login == false ? (<Route path='/' element = {<LoginForm/>}/>):
+          (<>
+            {/* <Route path='/' element = {<Home/>}/> */}
+            <Route path='/' element= {<Dashboard/>}/>
+            <Route path='/allResult' element = {<Result/>}/>
+            <Route path='/attendence' element = {<Attendence/>} />
+            </>)
+        }
+          
+        
       </Routes>
     </BrowserRouter>
   );
