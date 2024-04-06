@@ -1,17 +1,14 @@
-
-
-var mysql      = require('mysql');
+import mysql from 'mysql'
+// var mysql      = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'L@kshay.07',
-  database : 'academic_insight_portal'
+  database : 'academicinsightportal'
 });
  
 
 
 
-
-
-module.exports  =connection
+export default connection

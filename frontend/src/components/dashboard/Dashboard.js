@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css'; // Optimum CSS styles
+import axios from 'axios';
 
-const student = {
-  name: "John Doe",
-  batch: "2022",
-  currentSem: 5,
-  age: 20,
-  currentGPA: 3.75
-};
+const StudentId = 3;
+
+
+
 
 
 const Dashboard = () => {
+  const [student, setStudent] = useState({
+    name:"",
+    batch:'',
+    currentSem: "",
+    age: "",
+    currentGPA: ""
+  });
+
+
+  useEffect(()=>{
+    const getData = async()=>{
+      try {
+        const response = axios.get('http://localhost:8000', {params: 3});
+        console.log(response);
+  
+      } catch (error) {
+        
+      }
+    }
+  }, [])
   return (
     <div className="dashboard">
       {/* Student Profile */}
