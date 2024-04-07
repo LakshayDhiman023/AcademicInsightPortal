@@ -1,38 +1,343 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+  font-family: "Reddit Mono", monospace;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-logo img:hover {
+  cursor: pointer;
+}
+
+.navbar-tabs {
+  display: flex;
+}
+
+.tab {
+  position: relative;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.tab:hover {
+  color: #43a1ff;
+}
+
+.active {
+  color: #43a1ff;
+  /* Adjust as needed */
+  background-color: #b4d4f339;
+
+}
+
+.active-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #43a1ff;
+  /* Adjust as needed */
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.active .active-line {
+  transform: scaleX(1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  color: #000000;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: #43a1ff;
+  /* Adjust as needed */
+  background-color: #b4d4f339;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  background-color: rgba(241, 232, 247, 0.432);
+  padding-top: 20px;
+}
+
+.userinfo {
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 20px #b9b9b9;
+  height: fit-content;
+  width: fit-content;
+  background-color: white;
+}
+.second {
+  flex: 0 0 55%;
+}
+.numvalues {
+  display: flex;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 2px 2px 20px #b9b9b9;
+  margin-top: 20px;
+  padding: 10px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  margin-left: 10px;
+  width: fit-content;
+  padding-right: 43px;
+}
+
+.announcements {
+  flex: 0 0 18%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 2px 2px 20px #b9b9b9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 30px
+}
+
+.userinfo {
+  max-width: 800px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.result {
+  flex: 0 0 55%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 2px 2px 20px #b9b9b9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  width: fit-content;
+}
+
+.userinfo:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+.result:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+.numvalues:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+
+.result-heading, .result-cards{
+  display: flex;
+}
+
+.result-heading > h2 {
+  margin-left: 300px;
+  margin-top: 25px;
+}
+
+.result-card {
+  margin: 0px 20px;
+  padding: 5px;
+}
+.result-card > h3 {
+  width: 130px;
+}
+
+.result h1 {
+  margin-left: 30px;
+}
+
+.semester-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.semester {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.semester-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.spi {
+  font-size: 16px;
+}
+
+.grade {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .result {
+    flex: 1;
+  }
+
+  .result h1 {
+    margin-left: 10px;
+  }
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  margin-right: 20px;
+}
+
+.user-image img {
+  width: 100px;
+  /* Adjust as needed */
+  height: 100px;
+  /* Adjust as needed */
+  border-radius: 50%;
+}
+
+.user-name {
+  margin-top: 0;
+}
+
+.user-details {
+  margin-top: 10px;
+}
+
+.user-details p {
+  margin-bottom: 5px;
+}
+
+.attendance-card {
+  width: 150px;
+  margin: 5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cardss {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.attendance-progress {
+  width: 100px;
+  margin: auto;
+}
+
+.Attendance {
+  height: fit-content;
+}
+
+.Attendance>h1 {
+  margin-left: 30px;
+}
+
+.announcement {
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.announcement:hover {
+  transform: scale(1.04);
+}
+
+.announcement-divider {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.announcements {
+  flex: 0 0 18%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 2px 2px 20px #b9b9b9;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+
+.announcements h2 {
+  margin-left: 10px;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 100px;
+  background-color: #ccc; 
+  margin: 0 20px; 
+}
+
+.result-page,
+.attendance-page {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.semester-card {
+  box-shadow: 2px 2px 20px #b9b9b9;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 15px;
+  background-color: white;
+  margin: 20px;
+  width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.semester-card:hover {
+  transform: scale(1.04);
+  transition: transform 0.2s ease-in-out;
+}
+
+.subjects-list {
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: column;
+}
+.subject > pre{
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.subject {
+  border-bottom: 1px solid #ccc;
 }
