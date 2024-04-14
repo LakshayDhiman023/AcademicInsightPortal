@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import Navbar from './Navbar';
+import Navbar from './componenets/navbar/Navbar';
 import userLogo from './images/logo.jpg';
-import UserProfile from './UserProfile';
-import AttendanceComponent from './AttendanceComponent';
-import AnnouncementSection from './AnnouncementSection';
-import ResultSection from './ResultSection';
-import ResultPage from './ResultPage';
-import AttendancePage from './AttendancePage';
+import UserProfile from './componenets/userProfile/UserProfile';
+import AttendanceComponent from './componenets/attendence/AttendanceComponent';
+import AnnouncementSection from './componenets/announcement/AnnouncementSection';
+import ResultSection from './componenets/result/ResultSection';
+import ResultPage from './componenets/result/ResultPage'
+import AttendancePage from './componenets/attendence/AttendancePage'
 
 const App = () => {
 
@@ -24,11 +24,11 @@ const App = () => {
   ];
 
   const user = {
-    name: 'John Doe',
+    name: 'Ayush Kumar',
     image: userLogo,
     course: 'Computer Science',
-    dob: 'January 1, 1990',
-    email: 'john.doe@example.com',
+    dob: 'December 9 2004',
+    email: 'ayushkumar@gmail.com',
     contact: '1234567890',
   };
 
