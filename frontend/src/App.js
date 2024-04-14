@@ -47,91 +47,9 @@ const App = () => {
     { title: 'Semester 4', spi: 8.8 }
   ];
 
-  const semestersData = [
-    {
-      semester: 1,
-      subjects: [
-        { name: 'Subject 1', marks: 80 },
-        { name: 'Subject 2', marks: 75 },
-        { name: 'Subject 3', marks: 85 },
-        { name: 'Subject 4', marks: 90 },
-        { name: 'Subject 5', marks: 95 }
-      ]
-    },
-    {
-      semester: 2,
-      subjects: [
-        { name: 'Subject 1', marks: 80 },
-        { name: 'Subject 2', marks: 75 },
-        { name: 'Subject 3', marks: 85 },
-        { name: 'Subject 4', marks: 90 },
-        { name: 'Subject 5', marks: 95 }
-      ]
-    },
-    {
-      semester: 3,
-      subjects: [
-        { name: 'Subject 1', marks: 80 },
-        { name: 'Subject 2', marks: 75 },
-        { name: 'Subject 3', marks: 85 },
-        { name: 'Subject 4', marks: 90 },
-        { name: 'Subject 5', marks: 95 }
-      ]
-    },
-    {
-      semester: 4,
-      subjects: [
-        { name: 'Subject 1', marks: 80 },
-        { name: 'Subject 2', marks: 75 },
-        { name: 'Subject 3', marks: 85 },
-        { name: 'Subject 4', marks: 90 },
-        { name: 'Subject 5', marks: 95 }
-      ]
-    },
-  ];
-  const attendanceData = [
-    {
-      semester: 1,
-      subjects: [
-        { name: 'Subject 1', attendance: 90 },
-        { name: 'Subject 2', attendance: 85 },
-        { name: 'Subject 3', attendance: 95 },
-        { name: 'Subject 4', attendance: 80 },
-        { name: 'Subject 5', attendance: 75 }
-      ]
-    },
-    {
-      semester: 2,
-      subjects: [
-        { name: 'Subject 1', attendance: 90 },
-        { name: 'Subject 2', attendance: 85 },
-        { name: 'Subject 3', attendance: 95 },
-        { name: 'Subject 4', attendance: 80 },
-        { name: 'Subject 5', attendance: 75 }
-      ]
-    },
-    {
-      semester: 3,
-      subjects: [
-        { name: 'Subject 1', attendance: 90 },
-        { name: 'Subject 2', attendance: 85 },
-        { name: 'Subject 3', attendance: 95 },
-        { name: 'Subject 4', attendance: 80 },
-        { name: 'Subject 5', attendance: 75 }
-      ]
-    },
-    {
-      semester: 4,
-      subjects: [
-        { name: 'Subject 1', attendance: 90 },
-        { name: 'Subject 2', attendance: 85 },
-        { name: 'Subject 3', attendance: 95 },
-        { name: 'Subject 4', attendance: 80 },
-        { name: 'Subject 5', attendance: 75 }
-      ]
-    }
-  ];
-  console.log(attendanceData);
+  
+  
+  // console.log(attendanceData);
   let secondContent;
   switch (activeTab) {
     case 'home':
@@ -149,14 +67,14 @@ const App = () => {
     case 'attendance':
       secondContent = (
         <div className='second'>
-          <AttendancePage attendanceData={attendanceData} />
+          <AttendancePage  />
         </div>
       );
       break;
     case 'result':
       secondContent = (
         <div className='second'>
-          <ResultPage semestersData={semestersData} />
+          <ResultPage />
         </div>
       );
       break;
