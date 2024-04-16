@@ -8,6 +8,7 @@ import AnnouncementSection from './componenets/announcement/AnnouncementSection'
 import ResultSection from './componenets/result/ResultSection';
 import ResultPage from './componenets/result/ResultPage'
 import AttendancePage from './componenets/attendence/AttendancePage'
+import Login from './componenets/login/Login';
 
 const App = () => {
 
@@ -17,11 +18,7 @@ const App = () => {
     setActiveTab(tab);
   };
 
-  const announcements = [
-    { title: 'Announcement 1', content: 'This is the content of Announcement 1.' },
-    { title: 'Announcement 2', content: 'This is the content of Announcement 2.' },
-    { title: 'Announcement 3', content: 'This is the content of Announcement 3.' }
-  ];
+  
 
   const user = {
     name: 'Ayush Kumar',
@@ -83,24 +80,21 @@ const App = () => {
   }
 
 
+  const [userId, setUSerId] = useState(0);
+
+
   return (
+    userId === 0?<Login isLogin={setUSerId}/>:
     <div className="container">
       <Navbar onTabClick={handleTabClick} activeTab={activeTab} />
       <div className="content">
         <div className="userinfo">
-          <div className="user-profile-section">
-            <div className="user-image">
-              <img src={user.image} alt={user.name} />
-            </div>
-            <div className="user-details">
-              <h2 className="user-name">{user.name}</h2>
-            </div>
-          </div>
+          
           <UserProfile user={user} />
         </div>
         {secondContent}
         <div className="announcements">
-          <AnnouncementSection announcements={announcements} />
+          <AnnouncementSection />
         </div>
       </div>
     </div>

@@ -18,7 +18,15 @@ const UserProfile = () => {
     };
     getData();
   }, [])
-  return (
+  return (<>
+    <div className="user-profile-section">
+      <div className="user-image">
+        <img src={user.image} alt={user.name} />
+      </div>
+      <div className="user-details">
+        <h2 className="user-name">{user.name}</h2>
+      </div>
+    </div>
     <div className="user-profile">
       <div className="user-info">
         <p className="user-details">
@@ -35,6 +43,7 @@ const UserProfile = () => {
         </p>
       </div>
     </div>
+  </>
   );
 };
 
