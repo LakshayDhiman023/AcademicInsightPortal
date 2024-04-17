@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './TeacherApp.css';
 import Navbar from './componenets/navbar/TeacherNavbar';
 import UserProfile from './componenets/userProfile/TeacherUserProfile';
 import ResultPage from './componenets/result/TeacherResultPage';
