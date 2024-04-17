@@ -12,22 +12,62 @@ export const fetchStudentInfo = async (req, res) =>{
 }
 
 export const validateLogin  = (req, res) => {
-    const { student_id, password } = req.body;
+    const { user, id, password } = req.body;
+
+    console.log(user, id, password);
   
-    // Query to validate login
-    const query = `SELECT * FROM student WHERE student_id = ${student_id} AND password = "${password}"`;
-    connection.query(query, [student_id, password], (error, results, fields) => {
-      if (error) {
-        console.error('Error executing MySQL query:', error);
-        return res.status(500).json({ error: 'Internal Server Error' });
-      }
-  
-      if (results.length > 0) {
-        // Login successful
-        res.status(200).json({ message: 'Login successful', user: results[0] });
-      } else {
-        // Invalid credentials
-        res.status(401).json({ error: 'Invalid credentials' });
-      }
-    });
+    if(user === 'student'){
+      const query = `SELECT * FROM student WHERE student_id = ${id} AND password = "${password}"`;
+      connection.query(query, [id, password], (error, results, fields) => {
+        if (error) {
+          console.error('Error executing MySQL query:', error);
+          return res.status(500).json({ error: 'Internal Server Error' });
+        }
+    
+        if (results.length > 0) {
+          // Login successful
+          res.status(200).json({ message: 'Login successful', user: results[0] });
+        } else {
+          // Invalid credentials
+          res.status(401).json({ error: 'Invalid credentials' });
+        }
+      });
+    }
+    else if(user === 'teacher'){
+      const query = `SELECT * FROM teacher WHERE teacher_id = ${id} AND password = "${password}"`;
+      connection.query(query, [id, password], (error, results, fields) => {
+        if (error) {
+          console.error('Error executing MySQL query:', error);
+          return res.status(500).json({ error: 'Internal Server Error' });
+        }
+    
+        if (results.length > 0) {
+          // Login successful
+          res.status(200).json({ message: 'Login successful', user: results[0] });
+        } else {
+          // Invalid credentials
+          res.status(401).json({ error: 'Invalid credentials' });
+        }
+      });
+    }
+    else if(user === "admin"){
+      const query = `SELECT * FROM admin WHERE admin_id = ${id} AND password = "${password}"`;
+      connection.query(query, [id, password], (error, results, fields) => {
+        if (error) {
+          console.error('Error executing MySQL query:', error);
+          return res.status(500).json({ error: 'Internal Server Error' });
+        }
+    
+        if (results.length > 0) {
+          // Login successful
+          res.status(200).json({ message: 'Login successful', user: results[0] });
+        } else {
+          // Invalid credentials
+          res.status(401).json({ error: 'Invalid credentials' });
+        }
+      });
+    }
+    else{
+      console.log("stupid");
+    }
   };
