@@ -1,0 +1,17 @@
+.teacher-role-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  .left-column,
+  .right-column {
+    width: 20%;
+  }
+  
+  .center-column {
+    flex-grow: 1;
+  }
+  
+  /* Add more styles as needed */
+  

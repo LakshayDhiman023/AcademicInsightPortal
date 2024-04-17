@@ -1,11 +1,25 @@
-import React from 'react'
-import TeacherAddAnnouncementPage from '../announcement/AddAnnouncementForm'
-function TeacherRole() {
+import React, { useId } from 'react';
+import "./TeacherRole.css"
+
+// import CenterComponent from './CenterComponent';
+import AnnouncementSection from '../announcement/AnnouncementSection';
+import TeacherProfile from '../teachers/TeacherProfil';
+import AddStudent from '../students/AddStudent';
+
+function TeacherRole({userId}) {
   return (
-    <>
-      <TeacherAddAnnouncementPage/>
-    </>
-  )
+    <div className="teacher-role-container">
+      <div className="left-column">
+        <TeacherProfile userId = {useId}/>
+      </div>
+      <div className="center-column">
+        <AddStudent/>
+      </div>
+      <div className="right-column">
+        <AnnouncementSection />
+      </div>
+    </div>
+  );
 }
 
-export default TeacherRole
+export default TeacherRole;

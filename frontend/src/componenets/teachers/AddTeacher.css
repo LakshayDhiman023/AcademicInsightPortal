@@ -1,0 +1,42 @@
+.add-teacher-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .add-teacher-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-teacher-form div {
+    margin-bottom: 15px;
+  }
+  
+  .add-teacher-form label {
+    margin-bottom: 5px;
+  }
+  
+  .add-teacher-form input,
+  .add-teacher-form button {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    width: 100%; /* Added to make inputs full-width */
+  }
+  
+  .add-teacher-form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    width: 50%; /* Adjust width as needed */
+    margin: 10px auto; /* Center button horizontally */
+  }
+  
+  .add-teacher-form button:hover {
+    background-color: #0056b3;
+  }
+  

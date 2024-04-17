@@ -71,3 +71,44 @@ export const validateLogin  = (req, res) => {
       console.log("stupid");
     }
   };
+
+
+  export const addStudent = (req, res) =>{
+    const { student_id, name, contact_no, email, password, course, dob } = req.body;
+
+  // Validate input data (you can add more validation as needed)
+  if (!student_id || !name || !contact_no || !email || !password || !course || !dob) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  // Check if student with the same email already exists in the database
+  connection.query(
+    `SELECT * FROM student WHERE email = "${email}"`,
+    [email],
+    (error, results) => {
+      if (error) {
+        console.error('Error checking for existing student:', error);
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+
+      if (results.length > 0) {
+        return res.status(400).json({ error: 'Student with this email already exists' });
+      }
+
+      // Insert new student into the database
+      connection.query(
+        `INSERT INTO student (student_id, name, contact_no, email, password, course, dob) VALUES ("${student_id}0", "${name}", "${contact_no}", "${email}", "${password}", "${course}", "${dob}")`,
+        [student_id, name, contact_no, email, password, course, dob],
+        (insertError) => {
+          if (insertError) {
+            console.error('Error adding new student:', insertError);
+            return res.status(500).json({ error: 'Internal server error' });
+          }
+
+          // Respond with success message and the added student data
+          res.status(201).json({ message: 'Student added successfully', student: req.body });
+        }
+      );
+    }
+  );
+  }

@@ -18,7 +18,7 @@ const App = () => {
       if (user === "student") {
         return <StudentRole/>
       } else if(user === "teacher") {
-        return <TeacherRole/>
+        return <TeacherRole userId = {userId}/>
       }
       else if(user === "admin"){
         return <AdminRole/>
