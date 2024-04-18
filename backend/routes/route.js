@@ -2,7 +2,7 @@ import express from 'express';
 import { addStudent, fetchStudentInfo, validateLogin } from '../controller/student-controller.js';
 import { addAnnouncement, fetchAnnouncement } from '../controller/announcement-controller.js';
 import { fetchAllAttendance } from '../controller/attendance-controller.js';
-import { fetchAllResult } from '../controller/result-controller.js';
+import { addSemResult, fetchAllResult } from '../controller/result-controller.js';
 import { addTeacher, fetchTeacherInfo } from '../controller/teacher-controller.js';
 
 
@@ -23,5 +23,6 @@ router.post('/addAnnouncement', addAnnouncement)
 router.post('/addTeacher', addTeacher)
 router.post('/addStudent', addStudent)
 router.get("/teacher/:id", fetchTeacherInfo);
+router.post("/addResult", addSemResult);
 
 export default router

@@ -5,6 +5,7 @@ import "./TeacherRole.css"
 import AnnouncementSection from '../announcement/AnnouncementSection';
 import TeacherProfile from '../teachers/TeacherProfil';
 import AddStudent from '../students/AddStudent';
+import AddResultForm from '../result/AddResultForm';
 
 function TeacherRole({userId}) {
   return (
@@ -13,7 +14,8 @@ function TeacherRole({userId}) {
         <TeacherProfile userId = {useId}/>
       </div>
       <div className="center-column">
-        <AddStudent/>
+        {/* <AddStudent/> */}
+        <AddResultForm/>
       </div>
       <div className="right-column">
         <AnnouncementSection />
