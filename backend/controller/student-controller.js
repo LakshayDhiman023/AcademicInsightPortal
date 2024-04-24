@@ -14,7 +14,7 @@ export const fetchStudentInfo = async (req, res) =>{
 export const validateLogin  = (req, res) => {
     const { user, id, password } = req.body;
 
-    console.log(user, id, password);
+    // console.log(user, id, password);
   
     if(user === 'student'){
       const query = `SELECT * FROM student WHERE student_id = ${id} AND password = "${password}"`;
@@ -111,4 +111,46 @@ export const validateLogin  = (req, res) => {
       );
     }
   );
+  }
+
+
+export const deleteStudent = async (req, res) => {
+  
+    const { id } = req.params;
+  
+    try {
+      
+      await connection.query(`DELETE FROM student WHERE student_id = ${id}`, [id]);
+      
+      res.status(200).json({ message: `Student with ID ${id} deleted successfully.` });
+    } catch (error) {
+      console.error('Error deleting student:', error);
+      res.status(500).json({ error: 'Internal server error.' });
+    }
+  };
+
+
+  export const updateStudent = async (req, res) => {
+    const { studentId } = req.params;
+    const { name, contact_no, email, password, course, dob } = req.body;
+  
+    const updateQuery = `
+      UPDATE students
+      SET name = "${name}", contact_no = "${contact_no}", email = "${email}", course = "${course}", dob = "${dob}"
+      WHERE student_id = "${studentId}"
+    `;
+  
+    db.query(updateQuery, [name, contact_no, email, password, course, dob, studentId], (err, result) => {
+      if (err) {
+        console.error('Error updating student details:', err);
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+  
+      if (result.affectedRows === 0) {
+        return res.status(404).json({ error: 'Student not found' });
+      }
+  
+      res.json({ message: 'Student details updated successfully' });
+    });
+    
   }

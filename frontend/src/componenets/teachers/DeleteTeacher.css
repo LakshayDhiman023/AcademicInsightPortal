@@ -1,0 +1,28 @@
+.delete-teacher-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #c82333;
+  }
+  

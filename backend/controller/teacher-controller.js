@@ -66,3 +66,30 @@ export const fetchTeacherInfo = (req, res) =>{
     }
   );
 }
+
+
+export const deleteTeacher = (req, res) => {
+  const { teacherId } = req.params;
+
+  // SQL query to delete the teacher by ID
+  const deleteQuery = `DELETE FROM teachers WHERE teacher_id = ?`;
+
+  // Execute the query using the connection pool
+  
+
+  connection.query(deleteQuery, [teacherId], (error, results) => {
+    
+
+    if (error) {
+      console.error('Error deleting teacher:', error);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+
+    if (results.affectedRows === 0) {
+      return res.status(404).json({ error: 'Teacher not found' });
+    }
+
+    res.json({ message: 'Teacher deleted successfully' });
+    });
+  
+}

@@ -28,10 +28,10 @@ app.use(cors());
 
 
 
+app.use('/', Routes)
 
 app.listen(PORT, ()=>{
     console.log("connected to port 8000");
 })
 
 
-app.use('/', Routes)
