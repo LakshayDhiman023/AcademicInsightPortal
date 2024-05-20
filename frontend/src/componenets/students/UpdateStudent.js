@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './UpdateStudent.css'; // Import CSS file for styling
 
-const UpdateStudent = ({ studentId }) => {
+const UpdateStudent = () => {
+  let studentId = 1;
   const [studentDetails, setStudentDetails] = useState({
     name: '',
     contact_no: '',
@@ -10,16 +11,20 @@ const UpdateStudent = ({ studentId }) => {
     course: '',
     dob: '',
   });
+  const [loading, setLoading] = useState("true");
 
   useEffect(() => {
     fetchStudentDetails();
+
   }, [studentId]);
 
   const fetchStudentDetails = async () => {
-    let studentId = 5; // Ensure you're using the correct studentId logic here
+    let studentId = 1; // Ensure you're using the correct studentId logic here
     try {
       const response = await axios.get(`http://localhost:8000/student/${studentId}`);
       console.log(response.data);
+      
+      
       setStudentDetails(response.data); // Set initial form values from fetched data
     } catch (error) {
       console.error('Error fetching student details:', error);
@@ -55,6 +60,7 @@ const UpdateStudent = ({ studentId }) => {
   };
 
   return (
+    loading?<>Loading...</>:
     <form className="update-student-form" onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
       <input

@@ -20,8 +20,8 @@ function TeacherRole({userId}) {
         {/* <AddStudent/> */}
         {/* <AddResultForm/> */}
         {/* <DeleteStudent/> */}
-        {/* <UpdateStudent/> */}
-        <DeleteTeacher/>
+        <UpdateStudent/>
+        {/* <DeleteTeacher/> */}
       </div>
       <div className="right-column">
         <AnnouncementSection />
