@@ -1,3 +1,4 @@
+// Import database connection configuration
 import connection from "../database/db.config.js";
 
 
